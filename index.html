@@ -9,29 +9,29 @@
 <title>Save the Date – Jassy & Juwa’s Wedding</title>
 <meta property="og:title" content="Save the Date – Jassy & Juwa’s Wedding">
 <meta property="og:description" content="Join us on April 26, 2025, to celebrate our love and togetherness. Save the date and be part of our special day!">
-<meta property="og:image" content="https://juwassy.com/images/juwassy.jpeg">
+<meta property="og:image" content="https://juwassy.com/images/juwassy.png">
 <link rel="icon" type="image/x-icon" href="https://juwassy.com/images/in-love.png">
-<meta property="og:url" content="https://juwassy.com">
+<meta property="og:url" content="https://www.juwassy.com">
 <meta property="og:type" content="website">
 
 
 <!-- Google / Search Engine Tags -->
 <meta itemprop="name" content="Save the Date – Jassy &amp; Juwa’s Wedding" />
 <meta itemprop="description" content="Join us on April 26, 2025, to celebrate our love and togetherness. Save the date and be part of our special day!" />
-<meta itemprop="image" content="https://juwassy.com/images/juwassy.jpeg" />
+<meta itemprop="image" content="https://juwassy.com/images/juwassy.png" />
 
 <!-- Facebook Meta Tags -->
 <meta property="og:url" content="https://juwassy.com/" />
 <meta property="og:type" content="website" />
 <meta property="og:title" content="Save the Date – Jassy &amp; Juwa’s Wedding" />
 <meta property="og:description" content="Join us on April 26, 2025, to celebrate our love and togetherness. Save the date and be part of our special day!" />
-<meta property="og:image" content="https://juwassy.com/images/juwassy.jpeg" />
+<meta property="og:image" content="https://juwassy.com/images/juwassy.png" />
 
 <!-- Twitter Meta Tags -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Save the Date – Jassy &amp; Juwa’s Wedding" />
 <meta name="twitter:description" content="Join us on April 26, 2025, to celebrate our love and togetherness. Save the date and be part of our special day!" />
-<meta name="twitter:image" content="https://juwassy.com/images/juwassy.jpeg" />
+<meta name="twitter:image" content="https://juwassy.com/images/juwassy.png" />
 
 
 
@@ -47,21 +47,26 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
 /* ]]> */
 </script>
 <style id='wp-emoji-styles-inline-css' type='text/css'>
-
-	img.wp-smiley, img.emoji {
-		display: inline !important;
-		border: none !important;
-		box-shadow: none !important;
-		height: 1em !important;
-		width: 1em !important;
-		margin: 0 0.07em !important;
-		vertical-align: -0.1em !important;
-		background: none !important;
-		padding: 0 !important;
-	}
+    .floating-flower {
+        position: fixed; /* Ensures it moves relative to the viewport */
+        width: 80px; /* Adjust size as needed */
+        height: auto;
+        pointer-events: none; /* Prevents interfering with other elements */
+        transform: translate(-50%, -50%); /* Center the image at the mouse position */
+    }
 </style>
 <link rel='stylesheet' id='wp-block-library-css' href='https://wedding.nicdark.com/wedding-invitations/wp-includes/css/dist/block-library/style.min.css?ver=6.6.1' type='text/css' media='all' />
 <style id='classic-theme-styles-inline-css' type='text/css'>
+    /* Flower follows cursor */
+.floating-flower {
+    position: absolute;
+    width: 80px; /* Adjust the size */
+    height: auto;
+    pointer-events: none; /* Prevent blocking other elements */
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease-out; /* Smooth movement */
+}
+
 /*! This file is auto-generated */
 .wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
 </style>
@@ -91,6 +96,7 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
 	  
 </head>  
 <body id="nicdark_body" class="page-template-default page page-id-9 elementor-default elementor-kit-3 elementor-page elementor-page-9">
+    <img src="images/in-love.png" class="floating-flower" id="floatingFlower" />
 
 <!--START page-->
 <div class="nicdark_start_page">
@@ -311,7 +317,23 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
 
 	</div>
 	<!--END page-->
-
+    <script>
+        document.addEventListener("mousemove", (event) => {
+            const flower = document.getElementById("floatingFlower");
+            
+            // Check if the flower element exists
+            if (!flower) return;
+        
+            // Get mouse coordinates
+            const mouseX = event.clientX;
+            const mouseY = event.clientY;
+        
+            // Set position
+            flower.style.left = `${mouseX}px`;
+            flower.style.top = `${mouseY}px`;
+        });
+        
+    </script>    
 <link rel='stylesheet' id='e-animations-css' href='https://wedding.nicdark.com/wedding-invitations/wp-content/plugins/elementor/assets/lib/animations/animations.min.css?ver=3.13.4' type='text/css' media='all' />
 <script type="text/javascript" src="https://wedding.nicdark.com/wedding-invitations/wp-content/plugins/contact-form-7/includes/swv/js/index.js?ver=5.7.6" id="swv-js"></script>
 <script type="text/javascript" id="contact-form-7-js-extra">
@@ -350,5 +372,4 @@ var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false
 
 </body>  
 
-<!-- Mirrored from wedding.nicdark.com/wedding-invitations/wedding-invitations-02/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 11 Mar 2025 09:54:13 GMT -->
 </html>
