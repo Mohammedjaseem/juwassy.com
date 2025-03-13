@@ -92,7 +92,7 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
 
 
 
-		 /* Modal Styles */
+		/* Modal Styles */
         .modal {
             display: none;
             position: fixed;
@@ -140,7 +140,7 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
         }
 
         /* Button Styles */
-        .save-btn, .insta-btn {
+        .action-btn {
             font-size: 16px;
             padding: 12px 20px;
             border: none;
@@ -178,6 +178,17 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
             transform: scale(1.05);
         }
 
+        /* YouTube Button */
+        .yt-btn {
+            background: linear-gradient(135deg, #ff0000, #cc0000);
+            color: white;
+            font-weight: bold;
+        }
+
+        .yt-btn:hover {
+            transform: scale(1.05);
+        }
+
         /* Icon Styles */
         .icon {
             width: 20px;
@@ -194,6 +205,39 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
             font-size: 16px;
             color: #666;
         }
+
+		/* Location Button Styling */
+		.location-btn-wrapper {
+			display: flex;
+			justify-content: center;
+			margin-top: 20px;
+		}
+	
+		.location-btn {
+			background: #7a9c88; /* Soft green to match the theme */
+			color: white;
+			font-size: 18px;
+			font-weight: bold;
+			padding: 14px 24px;
+			border-radius: 50px;
+			text-decoration: none;
+			display: flex;
+			align-items: center;
+			gap: 10px;
+			transition: 0.3s ease-in-out;
+			box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+		}
+	
+		.location-btn:hover {
+			background: #6c8b78; /* Slightly darker green on hover */
+			transform: scale(1.05);
+			box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.2);
+		}
+	
+		.location-btn img {
+			width: 22px;
+			height: 22px;
+		}
 
 </style>
 <link rel='stylesheet' id='wp-block-library-css' href='https://wedding.nicdark.com/wedding-invitations/wp-includes/css/dist/block-library/style.min.css?ver=6.6.1' type='text/css' media='all' />
@@ -431,13 +475,12 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
 				<div class="elementor-widget-container">
 			<h5 class="elementor-heading-title elementor-size-default">Ceremony in the Green Palace Auditorium - Manoor</h5>	<br>	
             <div class="elementor-widget-container">
-                <div class="elementor-button-wrapper">
-                    <a href="https://maps.app.goo.gl/wf7d9drSHRGUb3bd7" class="elementor-button-link elementor-button elementor-size-sm elementor-align-center">
-                    
-                        <span class="elementor-button-text">Click here for location 📍</span>
-                    </a>
-                </div>
-
+                <div class="location-btn-wrapper">
+					<a href="https://maps.app.goo.gl/wf7d9drSHRGUb3bd7" target="_blank" class="location-btn">
+						<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Google_Maps_icon_%282020%29.svg/836px-Google_Maps_icon_%282020%29.svg.png?20200218211225" alt="Google Maps Icon">
+						Click here for Location 
+					</a>
+				</div>
 				<div id="myModal" class="modal">
 					<div class="modal-content">
 						<span class="close">&times;</span>
@@ -445,15 +488,21 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
 						<p>Don't forget the big day! Mark your calendar now and be part of our special journey. 💖</p>
 						
 						<!-- Save to Calendar Button -->
-						<button class="save-btn" onclick="window.open('https://www.google.com/calendar/render?action=TEMPLATE&text=Jassy+%26+Juwa+Wedding&dates=20250426T040000Z/20250426T100000Z&details=Join+us+for+our+special+day!&location=GreenPalace+Auditorium&sf=true&output=xml', '_blank');">
+						<button class="action-btn save-btn" onclick="window.open('https://www.google.com/calendar/render?action=TEMPLATE&text=Jassy+%26+Juwa+Wedding&dates=20250426T040000Z/20250426T100000Z&details=Join+us+for+our+special+day!&location=GreenPalace+Auditorium&sf=true&output=xml', '_blank');">
 							📅 Add to Calendar
 						</button>
 				
 						<!-- Instagram Follow Button -->
-						<a href="https://www.instagram.com/juwajassy" target="_blank" class="insta-btn">
+						<a href="https://www.instagram.com/juwajassy" target="_blank" class="action-btn insta-btn">
 							<img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" class="icon">
 							Follow us on Instagram
 						</a>
+				
+						<!-- YouTube Subscribe Button
+						<a href="https://www.youtube.com/@Juwassy" target="_blank" class="action-btn yt-btn">
+							<img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_social_white_circle_%282017%29.svg" alt="YouTube" class="icon">
+							Subscribe to our YouTube
+						</a>  -->
 					</div>
 				</div>
 				
