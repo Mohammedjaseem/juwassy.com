@@ -502,7 +502,7 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
 						<p>Don't forget the big day! Mark your calendar now and be part of our special journey. 💖</p>
 						
 						<!-- Save to Calendar Button -->
-						<button class="action-btn save-btn" onclick="window.open('https://www.google.com/calendar/render?action=TEMPLATE&text=Jassy+%26+Juwa+Wedding&dates=20250426T040000Z/20250426T100000Z&details=Join+us+for+our+special+day!&location=GreenPalace+Auditorium&sf=true&output=xml', '_blank');">
+						<button class="action-btn save-btn" onclick="if (window.innerWidth < 768) { window.open('googlecal://?action=TEMPLATE&text=Jassy+%26+Juwa+Wedding&dates=20250426T040000Z/20250426T100000Z&details=Join+us+for+our+special+day!&location=GreenPalace+Auditorium&sf=true&output=xml', '_blank'); } else { window.open('https://www.google.com/calendar/render?action=TEMPLATE&text=Jassy+%26+Juwa+Wedding&dates=20250426T040000Z/20250426T100000Z&details=Join+us+for+our+special+day!&location=GreenPalace+Auditorium&sf=true&output=xml', '_blank'); }">
 							📅 Add to Calendar
 						</button>
 				
