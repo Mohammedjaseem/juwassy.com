@@ -54,6 +54,120 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
         pointer-events: none; /* Prevents interfering with other elements */
         transform: translate(-50%, -50%); /* Center the image at the mouse position */
     }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 10% auto;
+            padding: 20px;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 500px;
+            text-align: center;
+            position: relative;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 22px;
+            cursor: pointer;
+        }
+
+        iframe {
+            width: 100%;
+            height: 300px;
+            border: none;
+        }
+
+		 /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .modal.show {
+            opacity: 1;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Close Button */
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 22px;
+            font-weight: bold;
+            cursor: pointer;
+            color: #555;
+        }
+
+        .close:hover {
+            color: black;
+        }
+
+        /* Button Styles */
+        .save-btn {
+            background: linear-gradient(135deg, #ff7eb3, #ff758c);
+            color: white;
+            font-size: 16px;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 15px;
+            display: inline-block;
+            text-decoration: none;
+            transition: 0.3s ease-in-out;
+        }
+
+        .save-btn:hover {
+            background: linear-gradient(135deg, #ff6584, #ff5066);
+            transform: scale(1.05);
+        }
+
+        /* Text Styles */
+        .modal h2 {
+            font-size: 20px;
+            color: #333;
+        }
+
+        .modal p {
+            font-size: 16px;
+            color: #666;
+        }
+
 </style>
 <link rel='stylesheet' id='wp-block-library-css' href='https://wedding.nicdark.com/wedding-invitations/wp-includes/css/dist/block-library/style.min.css?ver=6.6.1' type='text/css' media='all' />
 <style id='classic-theme-styles-inline-css' type='text/css'>
@@ -297,10 +411,44 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
                     </a>
                 </div>
 
+				<div id="myModal" class="modal">
+					<div class="modal-content">
+						<span class="close">&times;</span>
+						<h2>🎉 Jassy & Juwa are getting married! 🎊</h2>
+						<p>Don't forget the big day! Mark your calendar now and be part of our special journey. 💖</p>
+						<button class="save-btn" onclick="window.open('https://www.google.com/calendar/render?action=TEMPLATE&text=Jassy+%26+Juwa+Wedding&dates=20250426T040000Z/20250426T100000Z&details=Join+us+for+our+special+day!&location=GreenPalace+Auditorium&sf=true&output=xml', '_blank');">
+							📅 Add to Calendar
+						</button>
+					</div>
+				</div>
+				
 				<script>
-					window.onload = function() {
-						window.open("https://www.google.com/calendar/render?action=TEMPLATE&text=Jassy+%26+Juwa+Wedding&dates=20250426T040000Z/20250426T100000Z&details=Join+us+for+our+special+day!&location=GreenPalace+Auditorium&sf=true&output=xml", "_blank");
-					};
+					document.addEventListener("DOMContentLoaded", function() {
+						setTimeout(function() {
+							var modal = document.getElementById('myModal');
+							if (modal) {
+								modal.style.display = "flex";
+								setTimeout(() => modal.classList.add("show"), 50);
+							}
+						}, 4000);
+				
+						var modal = document.getElementById('myModal');
+						var closeBtn = document.querySelector(".close");
+				
+						if (modal && closeBtn) {
+							closeBtn.onclick = function() {
+								modal.classList.remove("show");
+								setTimeout(() => modal.style.display = "none", 500);
+							};
+				
+							window.onclick = function(event) {
+								if (event.target === modal) {
+									modal.classList.remove("show");
+									setTimeout(() => modal.style.display = "none", 500);
+								}
+							};
+						}
+					});
 				</script>
 				  
             </div>
