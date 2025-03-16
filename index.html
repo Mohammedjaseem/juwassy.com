@@ -239,6 +239,20 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
 			height: 22px;
 		}
 
+		.countdown {
+			text-align: center !important;
+			border-radius: 10px !important;
+			z-index: 1 !important;
+			justify-content: center !important;
+			align-items: center !important;
+		}
+		
+        .time {
+            font-size: 1.2em;
+            font-family: "Sans-serif;
+            color: #333;
+        }
+
 </style>
 <link rel='stylesheet' id='wp-block-library-css' href='https://wedding.nicdark.com/wedding-invitations/wp-includes/css/dist/block-library/style.min.css?ver=6.6.1' type='text/css' media='all' />
 <style id='classic-theme-styles-inline-css' type='text/css'>
@@ -435,6 +449,9 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
 				<div class="elementor-element elementor-element-f4b67a4 elementor-invisible elementor-widget elementor-widget-heading" data-id="f4b67a4" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeIn&quot;,&quot;_animation_delay&quot;:600}" data-widget_type="heading.default">
 				<div class="elementor-widget-container">
 			<h2 class="elementor-heading-title elementor-size-default">Jaseem & Shana</h2>
+
+				<br>	
+		
 				</div>
 					</div>
 		</div>
@@ -458,6 +475,7 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
 				</div>
 					</div>
 		</div>
+		
 				<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-f8d663e" data-id="f8d663e" data-element_type="column">
 			<div class="elementor-widget-wrap elementor-element-populated">
 								<div class="elementor-element elementor-element-3ef3944 elementor-widget elementor-widget-heading" data-id="3ef3944" data-element_type="widget" data-widget_type="heading.default">
@@ -467,14 +485,20 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
 					</div>
 		</div>
 							</div>
+						
 		</section>
+
+
+	
 				<section class="elementor-section elementor-inner-section elementor-element elementor-element-e468908 elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="e468908" data-element_type="section">
 						<div class="elementor-container elementor-column-gap-default">
 					<div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-687a235" data-id="687a235" data-element_type="column">
 			<div class="elementor-widget-wrap elementor-element-populated">
 								<div class="elementor-element elementor-element-8bd6780 elementor-invisible elementor-widget elementor-widget-heading" data-id="8bd6780" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeIn&quot;,&quot;_animation_delay&quot;:1000}" data-widget_type="heading.default">
 				<div class="elementor-widget-container">
-			<h5 class="elementor-heading-title elementor-size-default">Ceremony in the Green Palace Auditorium - Manoor</h5>	<br>	
+					<div class="time" id="timer"></div>
+					<br>
+			<h5 class="elementor-heading-title elementor-size-default">Ceremony at the Green Palace Auditorium – Manoor</h5>	<br>	
             <div class="elementor-widget-container">
                 <div class="location-btn-wrapper">
 					<a href="https://maps.app.goo.gl/wf7d9drSHRGUb3bd7" target="_blank" class="location-btn">
@@ -487,6 +511,8 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
 						<span class="close">&times;</span>
 						<h2>🎉 Jassy & Juwa are getting married! 🎊</h2>
 						<p>Don't forget the big day! Mark your calendar now and be part of our special journey. 💖</p>
+
+						
 						
 						<!-- Save to Calendar Button -->
 						<button class="action-btn save-btn" onclick="window.open('https://www.google.com/calendar/render?action=TEMPLATE&text=Jassy+%26+Juwa+Wedding&dates=20250426T040000Z/20250426T100000Z&details=Join+us+for+our+special+day!&location=GreenPalace+Auditorium&sf=true&output=xml')">
@@ -506,6 +532,30 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
 						</a>  -->
 					</div>
 				</div>
+
+				<script>
+					function updateCountdown() {
+						const targetDate = new Date("April 26, 2025 10:00:00").getTime();
+						const now = new Date().getTime();
+						const difference = targetDate - now;
+			
+						if (difference < 0) { 
+							document.getElementById("timer").innerHTML = "Event Started!";
+							return;
+						}
+			
+						const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+						const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+						const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+						const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+			
+						document.getElementById("timer").innerHTML =
+							`${days} Days ${hours} Hrs ${minutes} Mints ${seconds} Seconds`;
+					}
+					
+					updateCountdown();
+					setInterval(updateCountdown, 1000);
+				</script>
 				
 				<script>
 					document.addEventListener("DOMContentLoaded", function() {
