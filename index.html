@@ -297,24 +297,30 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
 <body id="nicdark_body" class="page-template-default page page-id-9 elementor-default elementor-kit-3 elementor-page elementor-page-9">
 
 
+ 
+
     <audio id="bgm" loop>
         <source src="https://github.com/Mohammedjaseem/juwassy.com/raw/refs/heads/main/sounds/bgm.mp3" type="audio/mpeg">
     </audio>
-
+    
     <script>
+        const audio = document.getElementById("bgm");
+    
+        // Play audio function
         function playAudio() {
-            const audio = document.getElementById("bgm");
             if (audio.paused) {
-                audio.play().then(() => {
-                    // Audio started successfully, remove event listeners
-                    document.removeEventListener("click", playAudio);
-                    document.removeEventListener("scroll", playAudio);
-                    document.removeEventListener("keydown", playAudio);
-                    document.removeEventListener("mousemove", playAudio);
-                    document.removeEventListener("touchstart", playAudio);
-                }).catch(error => {
+                audio.play().catch(error => {
                     console.error("Autoplay failed:", error);
                 });
+            }
+        }
+    
+        // Pause audio when the page is not visible
+        function handleVisibilityChange() {
+            if (document.hidden) {
+                audio.pause();
+            } else {
+                audio.play();
             }
         }
     
@@ -322,7 +328,14 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
         ["click", "scroll", "keydown", "mousemove", "touchstart"].forEach(event => {
             document.addEventListener(event, playAudio, { once: true });
         });
+    
+        // Add event listener for visibility change
+        document.addEventListener("visibilitychange", handleVisibilityChange);
+    
+        // Pause the audio if the page is hidden
+        handleVisibilityChange();  // Ensure audio is paused when the page is loaded in a hidden state
     </script>
+    
 
 
 
