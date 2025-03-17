@@ -302,13 +302,27 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
     </audio>
 
     <script>
-        document.addEventListener("click", function() {
+        function playAudio() {
             const audio = document.getElementById("bgm");
             if (audio.paused) {
-                audio.play();
+                audio.play().then(() => {
+                    // Audio started successfully, remove event listeners
+                    document.removeEventListener("click", playAudio);
+                    document.removeEventListener("scroll", playAudio);
+                    document.removeEventListener("keydown", playAudio);
+                    document.removeEventListener("mousemove", playAudio);
+                    document.removeEventListener("touchstart", playAudio);
+                }).catch(error => {
+                    console.error("Autoplay failed:", error);
+                });
             }
-        }, { once: true }); // Ensures it runs only once
-        </script>
+        }
+    
+        // Listen for any user interaction
+        ["click", "scroll", "keydown", "mousemove", "touchstart"].forEach(event => {
+            document.addEventListener(event, playAudio, { once: true });
+        });
+    </script>
 
 
 
