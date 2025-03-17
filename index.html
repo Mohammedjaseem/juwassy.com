@@ -297,6 +297,21 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
 <body id="nicdark_body" class="page-template-default page page-id-9 elementor-default elementor-kit-3 elementor-page elementor-page-9">
 
 
+    <audio id="bgm" loop>
+        <source src="https://github.com/Mohammedjaseem/juwassy.com/raw/refs/heads/main/sounds/bgm.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        document.addEventListener("click", function() {
+            const audio = document.getElementById("bgm");
+            if (audio.paused) {
+                audio.play();
+            }
+        }, { once: true }); // Ensures it runs only once
+        </script>
+
+
+
 
 <!--START page-->
 <div class="nicdark_start_page">
